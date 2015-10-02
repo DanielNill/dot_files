@@ -1,0 +1,6 @@
+[submodule ".vim/bundle/ag"]
+	path = .vim/bundle/ag
+	url = git@github.com:rking/ag.vim.git
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = git@github.com:wincent/command-t.git
