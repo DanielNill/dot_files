@@ -5,12 +5,13 @@ export DOCKER_HOST=tcp://192.168.59.103:2375
 eval "$(rbenv init -)"
 
 # for bluebox
-alias bluebox_dox="ssh deploy@ds1316.bbg"
-alias bluebox_other="ssh deploy@ds1321.bbg"
+alias bluebox_dox="ssh ds1316.bbg"
+alias bluebox_other="ssh ds1321.bbg"
+alias bluebox_pages="ssh ds745.sea03.bbg"
 
 # digital ocean
 alias pages_amstel="ssh root@198.199.93.210"
-alias finder_amstel="ssh root@192.241.223.225"
+alias finder_amstel="ssh dnill@finder-amstel.qa.dox.pub"
 
 # for macvim
 alias vim="mvim"
@@ -79,8 +80,8 @@ White="\[\033[0;37m\]"        # White
 # Various variables you might want for your PS1 prompt instead
 Time12h="\T"
 Time12a="\@"
-PathShort="\w"
-PathFull="\W"
+PathShort="\W"
+PathFull="\w"
 NewLine="\n"
 Jobs="\j"
 
@@ -96,15 +97,19 @@ if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
     # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(parse_git_branch); \
+    echo " '$Blue$PathFull$Green'"$(parse_git_branch); \
   else \
     # @5 - Changes to working tree
-    echo "'$IRed'"$(parse_git_branch); \
-  fi) '$Color_Off'\$ "; \
+    echo " '$Blue$PathFull$IRed'"$(parse_git_branch); \
+  fi) '$Yellow'⚡'$Color_Off' "; \
 else \
   # @2 - Prompt when not in GIT repo
-  echo " '$Color_Off'\$ "; \
+  echo " '$Blue$PathFull$Yellow' ⚡'$Color_Off' "; \
 fi)'
+
+# File Highlighting
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # elastic search
 alias elastic_search_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
