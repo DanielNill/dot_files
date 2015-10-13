@@ -1,0 +1,27 @@
+[user]
+	name = DanielN
+	email = daniellnill@gmail.com
+[credential]
+	helper = osxkeychain
+[color]
+	status = true
+	diff = true
+[alias]
+	s = status
+	b = branch
+	ch = checkout
+	c = commit
+	a = add
+	push = ps
+	p = push
+	commit = -a
+	pull = pl
+	ps = push
+	pl = pull
+	l = log --graph --date=short
+	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+	short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+	changelog = log --pretty=format:\" * %s\"
+	shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+[core]
+	excludesfile = ~/.gitignore
