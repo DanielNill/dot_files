@@ -10,6 +10,8 @@ filetype plugin indent on
 if has("gui_running")
 	set background=dark
 	colorscheme cobalt
+else
+  set term=termx-256color
 endif
 
 "" set auto read for files changed externally
@@ -44,6 +46,10 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" highlight lines the exceed 80 characters in ruby and js
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
 " Vim with default settings does not allow easy switching between multiple files
 " in the same editor window. Users can use multiple split windows or multiple
 " tab pages to edit multiple files, but it is still best to enable an option to
@@ -73,6 +79,7 @@ set cmdheight=2
 
 "" filetype interpretations
 au BufNewFile,BufRead *.eco set filetype=html
+au BufNewFile,BufRead *.cjsx set filetype=coffee
 au BufNewFile,bufRead *.hal_json set filetype=json
 au BufNewFile,BufRead *.mustache set filetype=html
 
