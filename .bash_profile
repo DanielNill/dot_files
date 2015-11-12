@@ -5,9 +5,9 @@ export DOCKER_HOST=tcp://192.168.59.103:2375
 eval "$(rbenv init -)"
 
 # for bluebox
-alias bluebox_dox="ssh ds1316.bbg"
-alias bluebox_other="ssh ds1321.bbg"
-alias bluebox_pages="ssh ds745.sea03.bbg"
+alias bluebox_dox="ssh dnill@ds1316.bbg"
+alias bluebox_other="ssh dnill@ds1321.bbg"
+alias bluebox_pages="ssh dnill@ds745.sea03.bbg"
 
 # digital ocean
 alias pages_amstel="ssh root@198.199.93.210"
