@@ -39,6 +39,7 @@ autocmd! GUIEnter * set vb t_vb=
 set tm=500
 set splitright
 set splitbelow
+set switchbuf+=usetab,newtab " switch to existing tab if is exists and open a new tab when opening a new buffer
 
 " stop using arrows
 nnoremap <Left> :echoe "Use h"<CR>
