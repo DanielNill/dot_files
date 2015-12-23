@@ -114,6 +114,7 @@ let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTMaxHeight = 20
 let g:CommandTMatchWindowAtTop = 1
+let g:CommandTWildIgnore = 'node_modules'
 
 "" search
 :set ignorecase
