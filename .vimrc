@@ -11,6 +11,8 @@ if has("gui_running")
 	set background=dark
 	colorscheme cobalt
 else
+  " the error in git merge edit is likely caused by this
+  " possibly by as well
   set term=termx-256color
 endif
 
@@ -19,7 +21,7 @@ set autoread
 
 "" Remove any trailing whitespace that is in the file
 " set eol
-autocmd FileType ruby,coffee,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType ruby,coffee,javascript,vue,jsx autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "" interface preferences
 set nocompatible    " use vim defaults
@@ -48,8 +50,11 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " highlight lines the exceed 80 characters in ruby and js
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+hi ColorColumn guibg=#2C4489
+set colorcolumn=80
+
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 " Vim with default settings does not allow easy switching between multiple files
 " in the same editor window. Users can use multiple split windows or multiple
@@ -109,12 +114,16 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 let NERDTreeShowHidden=1
 nmap <leader>ne :NERDTreeToggle<cr>
 
+"" nerdcommenter
+let NERDSpaceDelims=1
+
 "" command t
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTMaxHeight = 20
 let g:CommandTMatchWindowAtTop = 1
 let g:CommandTWildIgnore = 'node_modules'
+let g:CommandTMaxFiles=200000
 
 "" search
 :set ignorecase
