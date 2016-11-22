@@ -4,18 +4,15 @@ export DOCKER_HOST=tcp://192.168.59.103:2375
 # for rbenv
 eval "$(rbenv init -)"
 
-# for bluebox
-alias bluebox_dox="ssh dnill@ds1316.bbg"
-alias bluebox_other="ssh dnill@ds1321.bbg"
-alias bluebox_pages="ssh dnill@ds745.sea03.bbg"
-
-# digital ocean
-alias pages_amstel="ssh root@198.199.93.210"
-alias finder_amstel="ssh dnill@finder-amstel.qa.dox.pub"
+# for dox
+alias dox_prod="ssh deploy@prod-doximity-console-1.dox.box"
+alias finder_prod="ssh deploy@prod-finder-1.dox.box"
+alias pages_prod="ssh deploy@prod-pages-1.dox.box"
+alias email_delivery_prod="ssh deploy@prod-email-delivery-1.dox.box"
+alias es_prod_tunnel="ssh -L 5443:elasticsearch.dox.box:9200 dnill@aws-bastion -N"
 
 # for macvim
 alias vim="mvim"
-alias vi="mvim"
 
 # for bundler
 alias rake="bundle exec rake"
@@ -89,9 +86,15 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# function to make and directory and cd into it in a single command
+mkcd ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
 # This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
-
 export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
@@ -114,6 +117,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # elastic search
 alias elastic_search_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
 alias elastic_search_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
+export STDOUT_ES=true
 
 # for golang
 export GOPATH=$HOME/projects/go
@@ -127,3 +131,14 @@ export PATH=$PATH:/Users/Daniel/Downloads/emsdk_portable:/Users/Daniel/Downloads
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+# FOR IRONCLAD
+# Path
+# ----
+# MongoDB
+export PATH="$PATH:/usr/local/Cellar/mongodb/3.2.9/bin"
+# Ngrok
+export PATH="$PATH:~/ngrok"
+# Env
+# ---
