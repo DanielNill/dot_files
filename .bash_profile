@@ -132,13 +132,3 @@ export PATH=$PATH:/Users/Daniel/Downloads/emsdk_portable:/Users/Daniel/Downloads
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
-# FOR IRONCLAD
-# Path
-# ----
-# MongoDB
-export PATH="$PATH:/usr/local/Cellar/mongodb/3.2.9/bin"
-# Ngrok
-export PATH="$PATH:~/ngrok"
-# Env
-# ---
