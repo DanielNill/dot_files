@@ -1,18 +1,18 @@
-# docker
-export DOCKER_HOST=tcp://192.168.59.103:2375
+source ~/.bashrc
+source ~/projects/doximity/dox-compose/helpers.bash
 
 # for rbenv
 eval "$(rbenv init -)"
 
 # for dox
-alias dox_prod="ssh deploy@prod-doximity-console-1.dox.box"
-alias finder_prod="ssh deploy@prod-finder-1.dox.box"
-alias pages_prod="ssh deploy@prod-pages-1.dox.box"
-alias email_delivery_prod="ssh deploy@prod-email-delivery-1.dox.box"
+alias dox_prod="ssh prod-doximity-console-1.dox.box"
+alias finder_prod="ssh prod-finder-1.dox.box"
+alias pages_prod="ssh prod-pages-1.dox.box"
+alias email_delivery_prod="ssh prod-email-delivery-1.dox.box"
 alias es_prod_tunnel="ssh -L 5443:elasticsearch.dox.box:9200 dnill@aws-bastion -N"
 
 # for macvim
-alias vim="mvim"
+#alias vim="mvim"
 
 # for bundler
 alias rake="bundle exec rake"
@@ -46,7 +46,7 @@ alias grep="grep --color"
 
 #bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+   . $(brew --prefix)/etc/bash_completion
 fi
 
 # Make g alias for git work with autocomplete.
@@ -97,17 +97,17 @@ mkcd ()
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
 export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
-  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-  if [ "$?" -eq "0" ]; then \
-    # @4 - Clean repository - nothing to commit
-    echo " '$Blue$PathFull$Green'"$(parse_git_branch); \
-  else \
-    # @5 - Changes to working tree
-    echo " '$Blue$PathFull$IRed'"$(parse_git_branch); \
-  fi) '$Yellow'⚡'$Color_Off' "; \
+ echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+ if [ "$?" -eq "0" ]; then \
+   # @4 - Clean repository - nothing to commit
+   echo " '$Blue$PathFull$Green'"$(parse_git_branch); \
+ else \
+  # @5 - Changes to working tree
+   echo " '$Blue$PathFull$IRed'"$(parse_git_branch); \
+ fi) '$Yellow'⚡'$Color_Off' "; \
 else \
-  # @2 - Prompt when not in GIT repo
-  echo " '$Blue$PathFull$Yellow' ⚡'$Color_Off' "; \
+ # @2 - Prompt when not in GIT repo
+ echo " '$Blue$PathFull$Yellow' ⚡'$Color_Off' "; \
 fi)'
 
 # File Highlighting
@@ -129,6 +129,6 @@ export PATH=$PATH:$GOROOT/bin
 # note this needs to be updated if the sdk is moved
 export PATH=$PATH:/Users/Daniel/Downloads/emsdk_portable:/Users/Daniel/Downloads/emsdk_portable/clang/e1.27.0_64bit:/Users/Daniel/Downloads/emsdk_portable/node/0.10.18_64bit/bin:/Users/Daniel/Downloads/emsdk_portable/emscripten/1.27.0
 
-### Added by the Heroku Toolbelt
+## Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"

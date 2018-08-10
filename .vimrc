@@ -1,6 +1,9 @@
 " pathogen
 execute pathogen#infect()
 
+" allow copying to clipboard
+set clipboard=unnamed
+
 " set map leader
 let mapleader=","
 
@@ -13,7 +16,7 @@ if has("gui_running")
 else
   " the error in git merge edit is likely caused by this
   " possibly by as well
-  set term=termx-256color
+  " set term=termx-256color
 endif
 
 "" set auto read for files changed externally
@@ -147,3 +150,4 @@ endif
 
 "" bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+set runtimepath^=~/.vim/bundle/ag
