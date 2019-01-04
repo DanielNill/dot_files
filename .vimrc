@@ -22,6 +22,11 @@ endif
 "" set auto read for files changed externally
 set autoread
 
+"" change shape of cursor based on functionality
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[1 q"
+
 "" Remove any trailing whitespace that is in the file
 " set eol
 autocmd FileType ruby,coffee,javascript,vue,jsx autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -54,7 +59,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " highlight lines the exceed 80 characters in ruby and js
 hi ColorColumn guibg=#2C4489
-set colorcolumn=80
+set colorcolumn=120
 
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
@@ -116,6 +121,7 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 "" nerdtree
 let NERDTreeShowHidden=1
 nmap <leader>ne :NERDTreeToggle<cr>
+nmap ,n :NERDTreeFind<CR>
 
 "" nerdcommenter
 let NERDSpaceDelims=1

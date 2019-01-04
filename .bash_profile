@@ -1,5 +1,4 @@
 source ~/.bashrc
-source ~/projects/doximity/dox-compose/helpers.bash
 
 # for rbenv
 eval "$(rbenv init -)"
@@ -8,11 +7,21 @@ eval "$(rbenv init -)"
 alias dox_prod="ssh prod-doximity-console-1.dox.box"
 alias finder_prod="ssh prod-finder-1.dox.box"
 alias pages_prod="ssh prod-pages-1.dox.box"
-alias email_delivery_prod="ssh prod-email-delivery-1.dox.box"
+alias eda_prod="ssh prod-email-delivery-1.dox.box"
 alias es_prod_tunnel="ssh -L 5443:elasticsearch.dox.box:9200 dnill@aws-bastion -N"
+alias cm_prod="ssh prod-career-match-1.dox.box"
+alias cc_prod="ssh prod-colleague-connect-1.dox.box"
+alias jl_prod="ssh prod-job-listings-1.dox.box"
+alias staging-chamber='AWS_REGION=us-east-1 CHAMBER_KMS_KEY_ALIAS=staging-parameter-store aws-vault exec legacy -- chamber'
+alias pre-chamber='AWS_REGION=us-east-1 CHAMBER_KMS_KEY_ALIAS=pre-parameter-store aws-vault exec hipaa -- chamber'
+alias prod-chamber='AWS_REGION=us-east-1 CHAMBER_KMS_KEY_ALIAS=prod-parameter-store aws-vault exec hipaa -- chamber'
 
-# for macvim
-#alias vim="mvim"
+# dox-compose
+eval "$(~/projects/doximity/dox-compose/bin/dox-init)"
+alias dce="dox-dc exec ${PWD##*/}"
+alias docker-sync-restart="(cd ~/projects/doximity/dox-compose && docker-sync stop && docker-sync start)" 
+alias dc-start-app="dox-dc up -d ${PWD##*/} && dox-dc logs -f --tail=25 ${PWD##*/}"
+alias dc-rspec="dce bundle exec rspec"
 
 # for bundler
 alias rake="bundle exec rake"
@@ -44,12 +53,14 @@ alias ls="ls -la"
 alias psgrep="ps aux | grep"
 alias grep="grep --color"
 
+
 #bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
    . $(brew --prefix)/etc/bash_completion
 fi
 
 # Make g alias for git work with autocomplete.
+# brew install bash-completion
 complete -o default -o nospace -F _git g
 
 # display git branch
