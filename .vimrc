@@ -111,8 +111,8 @@ set tabstop=2
 map <leader>ss :setlocal spell!<cr>
 
 "" make it take up the full screen
-set columns=9999
-set lines=999
+" set columns=9999
+" set lines=999
 
 "" for go files
 "" set rtp+=$GOROOT/misc/vim
@@ -127,12 +127,19 @@ nmap ,n :NERDTreeFind<CR>
 let NERDSpaceDelims=1
 
 "" command t
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
-let g:CommandTMaxHeight = 20
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTWildIgnore = 'node_modules'
-let g:CommandTMaxFiles=200000
+" let g:CommandTAcceptSelectionMap = '<C-t>'
+" let g:CommandTAcceptSelectionTabMap = '<CR>'
+" let g:CommandTMaxHeight = 20
+" let g:CommandTMatchWindowAtTop = 1
+" let g:CommandTWildIgnore = 'node_modules'
+" let g:CommandTMaxFiles=200000
+
+"" fzf
+"" brew install fzf
+set rtp+=/usr/local/opt/fzf
+nmap <Leader>; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
 
 "" search
 :set ignorecase
