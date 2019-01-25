@@ -140,6 +140,11 @@ set rtp+=/usr/local/opt/fzf
 nmap <Leader>; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+let g:fzf_action = { 
+  \ 'enter': 'tabedit',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 "" search
 :set ignorecase
