@@ -1,20 +1,21 @@
 #!/bin/bash
 
 echo "installing homebrew"
-# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "installing homebrew packages"
+echo "\n\n\ninstalling homebrew packages"
 brew install bash bash-completion fzf git rbenv ruby-build the_silver_searcher vim
 
 # copy over files via symlink
-echo "linking config files"
-ln -s .bash_profile ~/.bash_profile
-ln -s .gitconfig ~/.gitconfig
-ln -s .gitignore ~/.gitignore
-ln -s .vimrc ~/.vimrc
+# TODO setup a syncing mechanism https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
+echo "\n\n\ncopying config files"
+cp .bash_profile $HOME/.bash_profile
+cp .gitconfig $HOME/.gitconfig
+cp .gitignore $HOME/.gitignore
+cp .vimrc $HOME/.vimrc
 
 # install vim plugins
-echo "installing vim plugins"
+echo "\n\n\ninstalling vim plugins"
 mkdir -p ~/.vim/bundle
 git clone git@github.com:rking/ag.vim.git ~/.vim/bundle/ag
 git clone git@github.com:junegunn/fzf.vim.git ~/.vim/bundle/fzf
@@ -31,6 +32,6 @@ git clone git@github.com:vim-ruby/vim-ruby.git ~/.vim/bundle/vim-ruby
 git clone git@github.com:slim-template/vim-slim.git ~/.vim/bundle/vim-slim
 
 # setup solarized
-echo "setting up solarized"
+echo "\n\n\nsetting up solarized"
 git clone git@github.com:tomislav/osx-terminal.app-colors-solarized.git ~/osx-terminal.app-colors-solarized
-echo "Open terminal preferences, import the solarized dark profile and set it to default"
+echo "\n\n\nOpen terminal preferences, import the solarized dark profile and set it to default"
