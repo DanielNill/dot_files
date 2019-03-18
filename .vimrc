@@ -97,6 +97,9 @@ au BufNewFile,BufRead *.cjsx set filetype=coffee
 au BufNewFile,bufRead *.hal_json set filetype=json
 au BufNewFile,BufRead *.mustache set filetype=html
 
+"" don't search ctags for tab autocomplete because it takes too long on large projects https://stackoverflow.com/questions/13232262/how-to-disable-tab-completion-for-tags-in-vim
+set cpt-=t
+
 "" turn off backups and swaps
 set nobackup
 set nowb

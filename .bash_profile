@@ -27,6 +27,9 @@ alias dc-rspec="dce bundle exec rspec"
 alias rake="bundle exec rake"
 alias rspec="bundle exec rspec"
 
+# for pry-remote
+alias pryr="pry-remote 127.0.0.1:9876"
+
 # homebrew
 export PATH="/usr/local/bin:${PATH}"
 
