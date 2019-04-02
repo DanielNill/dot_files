@@ -1,8 +1,5 @@
 source ~/.bashrc
 
-# for rbenv
-eval "$(rbenv init -)"
-
 # for dox
 alias dox_prod="ssh prod-doximity-console.dox.box"
 alias finder_prod="ssh prod-finder-console.dox.box"
@@ -152,3 +149,5 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion# for nvm
 
+# for rbenv
+eval "$(rbenv init -)"

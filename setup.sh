@@ -4,7 +4,7 @@ echo "installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "\n\n\ninstalling homebrew packages"
-brew install bash bash-completion fzf git rbenv ruby-build the_silver_searcher vim
+brew install bash bash-completion fzf git rbenv ruby-build the_silver_searcher vim fswatch
 
 # copy over files via symlink
 # TODO setup a syncing mechanism https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
