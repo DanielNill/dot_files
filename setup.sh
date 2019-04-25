@@ -6,16 +6,21 @@ echo "installing homebrew"
 echo "\n\n\ninstalling homebrew packages"
 brew install bash bash-completion fzf git rbenv ruby-build the_silver_searcher vim fswatch
 
+# pathogen
+echo "setup pathogen"
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 # copy over files via symlink
 # TODO setup a syncing mechanism https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-echo "\n\n\ncopying config files"
+echo "copying config files"
 cp .bash_profile $HOME/.bash_profile
 cp .gitconfig $HOME/.gitconfig
 cp .gitignore $HOME/.gitignore
 cp .vimrc $HOME/.vimrc
 
 # install vim plugins
-echo "\n\n\ninstalling vim plugins"
+echo "installing vim plugins"
 mkdir -p ~/.vim/bundle
 git clone git@github.com:rking/ag.vim.git ~/.vim/bundle/ag
 git clone git@github.com:junegunn/fzf.vim.git ~/.vim/bundle/fzf
@@ -32,6 +37,6 @@ git clone git@github.com:vim-ruby/vim-ruby.git ~/.vim/bundle/vim-ruby
 git clone git@github.com:slim-template/vim-slim.git ~/.vim/bundle/vim-slim
 
 # setup solarized
-echo "\n\n\nsetting up solarized"
+echo "setting up solarized"
 git clone git@github.com:tomislav/osx-terminal.app-colors-solarized.git ~/osx-terminal.app-colors-solarized
-echo "\n\n\nOpen terminal preferences, import the solarized dark profile and set it to default"
+echo "########   Open terminal preferences, import the solarized dark profile and set it to default ############"
